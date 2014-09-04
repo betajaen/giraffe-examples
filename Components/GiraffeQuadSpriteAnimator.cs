@@ -10,13 +10,10 @@ public class GiraffeQuadSpriteAnimator : MonoBehaviour
   private bool mPlaying = true;
 
   [SerializeField]
-  private GiraffeSpriteAnimation mAnimation;
+  private GiraffeSpriteAnimation mSpriteAnimation;
 
   [NonSerialized]
   private GiraffeQuadSpriteRenderer mRenderer;
-
-  [NonSerialized]
-  private bool mApplicationIsQuitting;
 
   [NonSerialized]
   private float mTime;
@@ -26,25 +23,15 @@ public class GiraffeQuadSpriteAnimator : MonoBehaviour
 
   void Awake()
   {
-    mApplicationIsQuitting = false;
     mRenderer = GetComponent<GiraffeQuadSpriteRenderer>();
     mCurrentFrame = -1;
   }
 
-  void OnApplicationQuit()
-  {
-    mApplicationIsQuitting = true;
-  }
-
-  void OnDisable()
-  {
-  }
-
   void Start()
   {
-    if (mAnimation != null && Application.isPlaying)
+    if (mSpriteAnimation != null && Application.isPlaying)
     {
-      mAnimation.FetchSprites();
+      mSpriteAnimation.FetchSprites();
       UpdateAnimation();
     }
   }
@@ -71,21 +58,21 @@ public class GiraffeQuadSpriteAnimator : MonoBehaviour
     }
   }
 
-  public GiraffeSpriteAnimation animation
+  public GiraffeSpriteAnimation spriteAnimation
   {
     get
     {
-      return mAnimation;
+      return mSpriteAnimation;
     }
     set
     {
-      if (mAnimation == value)
+      if (mSpriteAnimation == value)
         return;
-      mAnimation = value;
+      mSpriteAnimation = value;
       mCurrentFrame = -1;
-      if (Application.isPlaying && mAnimation != null)
+      if (Application.isPlaying && mSpriteAnimation != null)
       {
-        mAnimation.FetchSprites();
+        mSpriteAnimation.FetchSprites();
         UpdateAnimation();
       }
     }
@@ -107,14 +94,14 @@ public class GiraffeQuadSpriteAnimator : MonoBehaviour
 
   void UpdateAnimation()
   {
-    if (mAnimation == null)
+    if (mSpriteAnimation == null)
       return;
 
-    int frame = GiraffeSpriteAnimation.Animate(mAnimation, mTime, ref mPlaying);
+    int frame = GiraffeSpriteAnimation.Animate(mSpriteAnimation, mTime, ref mPlaying);
 
     if (frame != mCurrentFrame)
     {
-      GiraffeSprite sprite = mAnimation.frameSprites[frame];
+      GiraffeSprite sprite = mSpriteAnimation.frameSprites[frame];
       mRenderer.sprite = sprite;
       mCurrentFrame = frame;
     }

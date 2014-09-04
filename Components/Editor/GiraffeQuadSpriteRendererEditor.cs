@@ -12,7 +12,7 @@ public class GiraffeQuadSpriteRendererEditor : Editor
   private GiraffeAtlas mAtlas;
   private String[] mSpriteNames;
   private int mCurrentSpriteNameId;
-  private bool mIsPrefab;
+  //  private bool mIsPrefab;
 
   void OnEnable()
   {
@@ -32,11 +32,11 @@ public class GiraffeQuadSpriteRendererEditor : Editor
 
   void CacheSprites()
   {
-    if (mIsPrefab == false)
-    {
-      GiraffeAtlas._GetNames(mAtlas, ref mSpriteNames);
-      mCurrentSpriteNameId = GiraffeAtlas._FindSpriteIndex(mAtlas, mRenderer.spriteName);
-    }
+    //if (mIsPrefab == false)
+    //{
+    GiraffeAtlas._GetNames(mAtlas, ref mSpriteNames);
+    mCurrentSpriteNameId = GiraffeAtlas._FindSpriteIndex(mAtlas, mRenderer.spriteName);
+    //}
   }
 
   public override void OnInspectorGUI()

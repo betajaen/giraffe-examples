@@ -50,9 +50,6 @@ public class Missile : MonoBehaviour
   private float mTimer;
 
   [NonSerialized]
-  private int mMode;
-
-  [NonSerialized]
   public Ship owner;
 
   [NonSerialized]
@@ -151,7 +148,6 @@ public class Missile : MonoBehaviour
     mRigidBody.angularVelocity = 0.0f;
     mRenderer.visible = true;
     mTimer = 0.0f;
-    mMode = 0;
     owner = ship;
 
     if (mAnimator != null)

@@ -34,7 +34,7 @@ public class GiraffeFontEditor : Editor
 
   private GiraffeFont mFont;
   private int mMode;
-  private TextAsset mFontTextAsset;
+  //private TextAsset mFontTextAsset;
   private String[] mSpriteNames;
   private int mCurrentSpriteNameId;
 
@@ -109,7 +109,7 @@ public class GiraffeFontEditor : Editor
 
     GUI.changed = false;
 
-    mFont.atlas = EditorGUILayout.ObjectField("Atlas", mFont.atlas, typeof(GiraffeAtlas)) as GiraffeAtlas;
+    mFont.atlas = EditorGUILayout.ObjectField("Atlas", mFont.atlas, typeof(GiraffeAtlas), false) as GiraffeAtlas;
 
     if (GUI.changed)
     {
@@ -165,7 +165,7 @@ public class GiraffeFontEditor : Editor
   }
 
   private ImporterType mImporterType;
-  private TextAsset mImporterAsset;
+  //private TextAsset mImporterAsset;
   private String mImporterString;
   private int mImporterCharWidth;
   private int mImporterCharHeight;
@@ -195,7 +195,7 @@ public class GiraffeFontEditor : Editor
 
     if (GUI.changed)
     {
-      mImporterAsset = null;
+      // mImporterAsset = null;
       mImporterString = @"!""#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
       mImporterCharWidth = 9;
       mImporterCharHeight = 9;

@@ -83,7 +83,6 @@ public class GiraffeSpriteAnimation : ScriptableObject
         int frame = (int)(time * frameRate);
         return frame;
       }
-      break;
       case GiraffeAnimationMode.Once:
       {
         isPlaying = true;
@@ -96,7 +95,6 @@ public class GiraffeSpriteAnimation : ScriptableObject
         int frame = Mathf.Min((int)(time * frameRate), animation.frames.Count - 1);
         return frame;
       }
-      break;
     }
     return 1;
   }

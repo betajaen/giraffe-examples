@@ -31,7 +31,7 @@ public class GiraffeQuadSpriteAnimatorEditor : Editor
 
     GUI.changed = false;
 
-    mAnimator.animation = EditorGUILayout.ObjectField("Animation", mAnimator.animation, typeof(GiraffeSpriteAnimation), false) as GiraffeSpriteAnimation;
+    mAnimator.spriteAnimation = EditorGUILayout.ObjectField("Animation", mAnimator.spriteAnimation, typeof(GiraffeSpriteAnimation), false) as GiraffeSpriteAnimation;
 
     if (GUI.changed)
     {

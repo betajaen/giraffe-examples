@@ -127,9 +127,9 @@ public class Enemy : Ship
     this.wave = wave;
 
     if (verticalAnimations.Length == 1)
-      mAnimator.animation = verticalAnimations[0];
+      mAnimator.spriteAnimation = verticalAnimations[0];
     else if (verticalAnimations.Length == 3)
-      mAnimator.animation = verticalAnimations[1];
+      mAnimator.spriteAnimation = verticalAnimations[1];
 
     mAnimator.playing = true;
     mAnimator.time = 0.0f;
@@ -187,21 +187,21 @@ public class Enemy : Ship
 
     if (verticalAnimations.Length == 3)
     {
-      if (mVelocityY < 0.0f && mAnimator.animation != verticalAnimations[0])
+      if (mVelocityY < 0.0f && mAnimator.spriteAnimation != verticalAnimations[0])
       {
-        mAnimator.animation = verticalAnimations[0];
+        mAnimator.spriteAnimation = verticalAnimations[0];
         mAnimator.time = 0.0f;
         mAnimator.playing = true;
       }
-      else if (mVelocityY > 0.0f && mAnimator.animation != verticalAnimations[2])
+      else if (mVelocityY > 0.0f && mAnimator.spriteAnimation != verticalAnimations[2])
       {
-        mAnimator.animation = verticalAnimations[2];
+        mAnimator.spriteAnimation = verticalAnimations[2];
         mAnimator.time = 0.0f;
         mAnimator.playing = true;
       }
-      else if (mAnimator.animation != verticalAnimations[1])
+      else if (mAnimator.spriteAnimation != verticalAnimations[1])
       {
-        mAnimator.animation = verticalAnimations[1];
+        mAnimator.spriteAnimation = verticalAnimations[1];
         mAnimator.time = 0.0f;
         mAnimator.playing = true;
       }

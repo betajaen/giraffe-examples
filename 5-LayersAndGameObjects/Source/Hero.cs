@@ -9,14 +9,10 @@ public class Hero : Ship
   public static float msEnemyTargetX;
   public static float msEnemyTargetY;
 
-  private int kMovement_Up = 1;
-  private int kMovement_Down = 2;
-  private int kMovement_Left = 4;
-  private int kMovement_Right = 8;
-
-  private int kAction_Laser = 1;
-  private int kAction_Shield = 2;
-  private int kAction_Bomb = 4;
+  private const int kMovement_Up = 1;
+  private const int kMovement_Down = 2;
+  private const int kMovement_Left = 4;
+  private const int kMovement_Right = 8;
 
   private static readonly Vector2[] kMovements =
   {
@@ -39,7 +35,6 @@ public class Hero : Ship
   };
 
   private int mMovementFlags;
-  private int mAction;
   private float mSpeed;
 
   private GiraffeQuadSpriteRenderer mRenderer;
@@ -133,25 +128,25 @@ public class Hero : Ship
 
     if (nextMovement.y < 0)
     {
-      if (mAnimator.animation != verticalAnimations[0])
+      if (mAnimator.spriteAnimation != verticalAnimations[0])
       {
-        mAnimator.animation = verticalAnimations[0];
+        mAnimator.spriteAnimation = verticalAnimations[0];
         mAnimator.playing = true;
         mAnimator.time = 0.0f;
       }
     }
     else if (nextMovement.y > 0)
     {
-      if (mAnimator.animation != verticalAnimations[2])
+      if (mAnimator.spriteAnimation != verticalAnimations[2])
       {
-        mAnimator.animation = verticalAnimations[2];
+        mAnimator.spriteAnimation = verticalAnimations[2];
         mAnimator.playing = true;
         mAnimator.time = 0.0f;
       }
     }
-    else if (mAnimator.animation != verticalAnimations[1])
+    else if (mAnimator.spriteAnimation != verticalAnimations[1])
     {
-      mAnimator.animation = verticalAnimations[1];
+      mAnimator.spriteAnimation = verticalAnimations[1];
     }
 
     if (mFireTimer > fireTime)
