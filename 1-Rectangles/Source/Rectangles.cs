@@ -35,4 +35,23 @@ public class Rectangles : MonoBehaviour
 
   }
 
+  void Update()
+  {
+    if (Input.GetKeyUp(KeyCode.H))
+    {
+      mLayer.visible = !mLayer.visible;
+    }
+
+    if (Input.GetKeyUp(KeyCode.Plus) || Input.GetKeyUp(KeyCode.Equals))
+    {
+      mLayer.scale++;
+    }
+
+    if (Input.GetKeyUp(KeyCode.Minus) || Input.GetKeyUp(KeyCode.Underscore))
+    {
+      mLayer.scale--;
+    }
+
+  }
+
 }
